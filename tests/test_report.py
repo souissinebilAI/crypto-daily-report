@@ -33,8 +33,12 @@ class FormatTest(unittest.TestCase):
 
 class ContentTest(unittest.TestCase):
     def test_table_skips_missing_points(self):
-        table = report.coin_table(COINS)
+        table = report.coin_table(COINS, 1.0)
         self.assertIn("| Bitcoin (BTC) | €60,000.00 | ▲ +1.50% | ▼ -2.00% | €59,000.00 – €61,000.00 |", table)
+
+    def test_table_converts_usd_sparkline_to_eur(self):
+        table = report.coin_table(COINS, 0.5)
+        self.assertIn("€29,500.00 – €30,500.00", table)
 
     def test_summary_names_best_and_worst(self):
         text = report.summary(COINS, MARKET)

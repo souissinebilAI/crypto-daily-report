@@ -120,11 +120,12 @@ def chart_svg(coins, width=720, height=320):
     return "\n".join(out) + "\n"
 
 
-def coin_table(coins):
+def coin_table(coins, usd_to_eur):
     rows = ["| Coin | Price | 24h | 7d | 7d range | Market cap |",
             "|---|---:|---:|---:|---:|---:|"]
     for c in coins:
-        week = [p for p in c["sparkline_in_7d"]["price"] if p]
+        # CoinGecko returns the 7-day sparkline in USD even when vs_currency is EUR.
+        week = [p * usd_to_eur for p in c["sparkline_in_7d"]["price"] if p]
         rows.append(f"| {c['name']} ({c['symbol'].upper()}) | {fmt_eur(c['current_price'])} "
                     f"| {fmt_pct(c.get('price_change_percentage_24h_in_currency'))} "
                     f"| {fmt_pct(c.get('price_change_percentage_7d_in_currency'))} "
@@ -138,7 +139,7 @@ def summary(coins, market):
     data = market["data"]
     lines = [
         f"- **Total crypto market cap:** {fmt_eur(data['total_market_cap'][CURRENCY])} "
-        f"({fmt_pct(data.get('market_cap_change_percentage_24h_usd'))} in 24h)",
+        f"({fmt_pct(data.get('market_cap_change_percentage_24h_usd'))} in 24h, measured in USD)",
         f"- **Bitcoin dominance:** {data['market_cap_percentage']['btc']:.1f}%",
         f"- **Best of the tracked coins (24h):** {best['name']} "
         f"{fmt_pct(best.get('price_change_percentage_24h_in_currency'))}",
@@ -150,7 +151,7 @@ def summary(coins, market):
     return "\n".join(lines)
 
 
-def write_report(day, stamp, coins, market):
+def write_report(day, stamp, coins, market, usd_to_eur):
     chart = ROOT / "charts" / f"{day}.svg"
     chart.parent.mkdir(exist_ok=True)
     chart.write_text(chart_svg(coins), encoding="utf-8")
@@ -162,7 +163,7 @@ def write_report(day, stamp, coins, market):
         f"# Crypto market review: {day}\n\n"
         f"Snapshot taken {stamp} (Europe/Berlin). Prices in EUR from CoinGecko.\n\n"
         f"## Summary\n\n{summary(coins, market)}\n\n"
-        f"## Tracked coins\n\n{coin_table(coins)}\n\n"
+        f"## Tracked coins\n\n{coin_table(coins, usd_to_eur)}\n\n"
         f"## Last 7 days (indexed to 100)\n\n![7-day performance]({rel_chart})\n\n"
         f"---\n*Automated data summary. Not financial advice.*\n",
         encoding="utf-8")
@@ -184,13 +185,13 @@ def append_history(day, coins):
                         c["market_cap"]])
 
 
-def update_readme(day, report, chart, coins, market):
+def update_readme(day, report, chart, coins, market, usd_to_eur):
     path = ROOT / "README.md"
     text = path.read_text(encoding="utf-8")
     start, end = text.index(README_START), text.index(README_END)
     rel = lambda p: p.relative_to(ROOT).as_posix()
     recent = sorted((ROOT / "reports").rglob("*.md"), reverse=True)[:7]
-    block = (f"{README_START}\n### {day}\n\n{summary(coins, market)}\n\n{coin_table(coins)}\n\n"
+    block = (f"{README_START}\n### {day}\n\n{summary(coins, market)}\n\n{coin_table(coins, usd_to_eur)}\n\n"
              f"![7-day performance]({rel(chart)})\n\n"
              f"**Recent reports:** " + " · ".join(f"[{p.stem}]({rel(p)})" for p in recent) + "\n")
     path.write_text(text[:start] + block + text[end:], encoding="utf-8")
@@ -207,13 +208,15 @@ def main():
                                      "order": "market_cap_desc", "sparkline": "true",
                                      "price_change_percentage": "24h,7d"})
     market = fetch("/global", {})
+    btc = fetch("/simple/price", {"ids": "bitcoin", "vs_currencies": "eur,usd"})["bitcoin"]
+    usd_to_eur = btc["eur"] / btc["usd"]
     if len(coins) != len(COINS):
         print(f"Expected {len(COINS)} coins, got {len(coins)}", file=sys.stderr)
         return 1
 
-    report, chart = write_report(day, now.strftime("%Y-%m-%d %H:%M"), coins, market)
+    report, chart = write_report(day, now.strftime("%Y-%m-%d %H:%M"), coins, market, usd_to_eur)
     append_history(day, coins)
-    update_readme(day, report, chart, coins, market)
+    update_readme(day, report, chart, coins, market, usd_to_eur)
     print(f"Wrote {report.relative_to(ROOT).as_posix()}")
     return 0
 
