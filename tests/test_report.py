@@ -53,5 +53,18 @@ class ContentTest(unittest.TestCase):
         self.assertIn("ETH +4.2%", svg)
 
 
+class HistoryTest(unittest.TestCase):
+    def test_rerun_replaces_the_day_instead_of_duplicating(self):
+        import tempfile
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "history.csv"
+            report.append_history("2026-10-27", COINS, path)
+            report.append_history("2026-10-28", COINS, path)
+            report.append_history("2026-10-28", COINS, path)
+            lines = path.read_text(encoding="utf-8").splitlines()
+        self.assertEqual(len(lines), 1 + 2 * len(COINS))
+        self.assertEqual(sum(l.startswith("2026-10-28,") for l in lines), len(COINS))
+
+
 if __name__ == "__main__":
     unittest.main()

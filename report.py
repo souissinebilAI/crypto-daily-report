@@ -170,14 +170,18 @@ def write_report(day, stamp, coins, market, usd_to_eur):
     return report, chart
 
 
-def append_history(day, coins):
-    path = ROOT / "data" / "history.csv"
+def append_history(day, coins, path=None):
+    path = path or ROOT / "data" / "history.csv"
     path.parent.mkdir(exist_ok=True)
-    new = not path.exists()
-    with path.open("a", newline="", encoding="utf-8") as f:
+    # Drop rows for this day first, so a forced rerun replaces them instead of adding duplicates.
+    rows = []
+    if path.exists():
+        with path.open(newline="", encoding="utf-8") as f:
+            rows = [r for r in list(csv.reader(f))[1:] if r and r[0] != day]
+    with path.open("w", newline="", encoding="utf-8") as f:
         w = csv.writer(f)
-        if new:
-            w.writerow(["date", "coin", "price_eur", "change_24h_pct", "change_7d_pct", "market_cap_eur"])
+        w.writerow(["date", "coin", "price_eur", "change_24h_pct", "change_7d_pct", "market_cap_eur"])
+        w.writerows(rows)
         for c in coins:
             w.writerow([day, c["id"], c["current_price"],
                         round(c.get("price_change_percentage_24h_in_currency") or 0, 4),
