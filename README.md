@@ -9,27 +9,27 @@ The commits labelled `chore(bot): daily market report` are made by that workflow
 ## Latest report
 
 <!-- LATEST:START -->
-### 2026-10-31
+### 2026-11-01
 
-- **Total crypto market cap:** €2.35 T (▼ -2.49% in 24h, measured in USD)
-- **Bitcoin dominance:** 59.2%
-- **Best of the tracked coins (24h):** Ethereum ▲ +0.67%
-- **Weakest of the tracked coins (24h):** Solana ▼ -0.97%
+- **Total crypto market cap:** €2.35 T (▼ -2.18% in 24h, measured in USD)
+- **Bitcoin dominance:** 59.3%
+- **Best of the tracked coins (24h):** BNB ▲ +1.55%
+- **Weakest of the tracked coins (24h):** Solana ▼ -1.04%
 - **Week:** 0 of 7 tracked coins are up over 7 days.
 
 | Coin | Price | 24h | 7d | 7d range | Market cap |
 |---|---:|---:|---:|---:|---:|
-| Bitcoin (BTC) | €69,155.00 | ▲ +0.08% | ▼ -3.78% | €68,182.32 – €72,942.90 | €1.39 T |
-| Ethereum (ETH) | €2,005.52 | ▲ +0.67% | ▼ -4.77% | €1,956.92 – €2,116.17 | €245.0 B |
-| BNB (BNB) | €629.77 | ▲ +0.62% | ▼ -3.51% | €620.38 – €678.62 | €82.8 B |
-| XRP (XRP) | €1.11 | ▲ +0.14% | ▼ -2.48% | €1.08 – €1.19 | €70.5 B |
-| Solana (SOL) | €85.51 | ▼ -0.97% | ▼ -5.36% | €83.74 – €91.89 | €50.5 B |
-| Dogecoin (DOGE) | €0.0672 | ▼ -0.65% | ▼ -2.87% | €0.0660 – €0.0719 | €10.5 B |
-| Cardano (ADA) | €0.1719 | ▼ -0.21% | ▼ -7.45% | €0.1668 – €0.1865 | €6.5 B |
+| Bitcoin (BTC) | €69,531.00 | ▲ +0.50% | ▼ -3.34% | €68,181.88 – €72,942.43 | €1.40 T |
+| Ethereum (ETH) | €2,022.87 | ▲ +0.66% | ▼ -3.31% | €1,956.91 – €2,116.15 | €247.1 B |
+| BNB (BNB) | €638.17 | ▲ +1.55% | ▼ -4.08% | €620.38 – €678.62 | €83.9 B |
+| XRP (XRP) | €1.12 | ▲ +0.26% | ▼ -3.86% | €1.08 – €1.19 | €70.8 B |
+| Solana (SOL) | €84.64 | ▼ -1.04% | ▼ -6.37% | €83.74 – €91.89 | €50.0 B |
+| Dogecoin (DOGE) | €0.0676 | ▲ +0.41% | ▼ -1.49% | €0.0660 – €0.0719 | €10.6 B |
+| Cardano (ADA) | €0.1726 | ▲ +0.36% | ▼ -5.91% | €0.1668 – €0.1855 | €6.5 B |
 
-![7-day performance](charts/2026-10-31.svg)
+![7-day performance](charts/2026-11-01.svg)
 
-**Recent reports:** [2026-10-31](reports/2026/10/2026-10-31.md) · [2026-10-30](reports/2026/10/2026-10-30.md) · [2026-10-29](reports/2026/10/2026-10-29.md) · [2026-10-28](reports/2026/10/2026-10-28.md)
+**Recent reports:** [2026-11-01](reports/2026/11/2026-11-01.md) · [2026-10-31](reports/2026/10/2026-10-31.md) · [2026-10-30](reports/2026/10/2026-10-30.md) · [2026-10-29](reports/2026/10/2026-10-29.md) · [2026-10-28](reports/2026/10/2026-10-28.md)
 <!-- LATEST:END -->
 
 ## How it works
