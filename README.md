@@ -9,27 +9,27 @@ The commits labelled `chore(bot): daily market report` are made by that workflow
 ## Latest report
 
 <!-- LATEST:START -->
-### 2026-11-10
+### 2026-11-11
 
-- **Total crypto market cap:** €2.23 T (▼ -3.59% in 24h, measured in USD)
+- **Total crypto market cap:** €2.24 T (▼ -2.92% in 24h, measured in USD)
 - **Bitcoin dominance:** 59.7%
-- **Best of the tracked coins (24h):** BNB ▲ +0.03%
-- **Weakest of the tracked coins (24h):** XRP ▼ -3.77%
+- **Best of the tracked coins (24h):** Solana ▲ +1.21%
+- **Weakest of the tracked coins (24h):** Dogecoin ▼ -0.25%
 - **Week:** 0 of 7 tracked coins are up over 7 days.
 
 | Coin | Price | 24h | 7d | 7d range | Market cap |
 |---|---:|---:|---:|---:|---:|
-| Bitcoin (BTC) | €66,444.00 | ▼ -0.81% | ▼ -3.91% | €65,933.49 – €72,164.29 | €1.34 T |
-| Ethereum (ETH) | €1,853.31 | ▼ -2.66% | ▼ -8.96% | €1,847.28 – €2,178.17 | €226.5 B |
-| BNB (BNB) | €615.03 | ▲ +0.03% | ▼ -1.37% | €604.05 – €645.37 | €80.9 B |
-| XRP (XRP) | €0.9473 | ▼ -3.77% | ▼ -17.37% | €0.9523 – €1.18 | €60.2 B |
-| Solana (SOL) | €75.38 | ▼ -3.57% | ▼ -9.68% | €75.22 – €86.58 | €44.6 B |
-| Dogecoin (DOGE) | €0.0619 | ▼ -1.43% | ▼ -7.74% | €0.0609 – €0.0694 | €9.7 B |
-| Cardano (ADA) | €0.1584 | ▼ -2.27% | ▼ -7.03% | €0.1541 – €0.1788 | €6.0 B |
+| Bitcoin (BTC) | €66,409.00 | ▲ +0.32% | ▼ -5.72% | €65,694.88 – €72,755.69 | €1.33 T |
+| Ethereum (ETH) | €1,854.12 | ▲ +0.06% | ▼ -11.13% | €1,818.99 – €2,196.02 | €226.4 B |
+| BNB (BNB) | €614.04 | ▲ +0.05% | ▼ -2.44% | €604.80 – €650.65 | €80.7 B |
+| XRP (XRP) | €0.9536 | ▲ +0.64% | ▼ -17.01% | €0.9403 – €1.19 | €60.5 B |
+| Solana (SOL) | €75.96 | ▲ +1.21% | ▼ -8.75% | €73.86 – €87.29 | €44.9 B |
+| Dogecoin (DOGE) | €0.0615 | ▼ -0.25% | ▼ -8.47% | €0.0604 – €0.0699 | €9.6 B |
+| Cardano (ADA) | €0.1595 | ▲ +1.17% | ▼ -6.36% | €0.1552 – €0.1802 | €6.0 B |
 
-![7-day performance](charts/2026-11-10.svg)
+![7-day performance](charts/2026-11-11.svg)
 
-**Recent reports:** [2026-11-10](reports/2026/11/2026-11-10.md) · [2026-11-09](reports/2026/11/2026-11-09.md) · [2026-11-08](reports/2026/11/2026-11-08.md) · [2026-11-07](reports/2026/11/2026-11-07.md) · [2026-11-06](reports/2026/11/2026-11-06.md) · [2026-11-05](reports/2026/11/2026-11-05.md) · [2026-11-04](reports/2026/11/2026-11-04.md)
+**Recent reports:** [2026-11-11](reports/2026/11/2026-11-11.md) · [2026-11-10](reports/2026/11/2026-11-10.md) · [2026-11-09](reports/2026/11/2026-11-09.md) · [2026-11-08](reports/2026/11/2026-11-08.md) · [2026-11-07](reports/2026/11/2026-11-07.md) · [2026-11-06](reports/2026/11/2026-11-06.md) · [2026-11-05](reports/2026/11/2026-11-05.md)
 <!-- LATEST:END -->
 
 ## How it works
